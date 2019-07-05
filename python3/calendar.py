@@ -1,15 +1,12 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
 import sys
-sys.path.append(r'../lib')
-
+from Library import epd2in7b
+from Library import epdconfig
 from settings import *
 from image_data import *
-
 from datetime import datetime, date, timedelta
 import pyowm
-import epd2in7b
-import epdconfig
 import time
 from PIL import Image,ImageDraw,ImageFont
 import traceback
@@ -18,10 +15,10 @@ from pytz import timezone
 import numpy as np
 from time import sleep
 owm = pyowm.OWM(api_key, language=language)
-font18 = ImageFont.truetype('../lib/Font.ttc', 18)
-font45 = ImageFont.truetype('../lib/Font.ttc', 45)
-w_font_l = ImageFont.truetype(fpath+weather_font, 60)
-w_font_s = ImageFont.truetype(fpath+weather_font, 22)
+font18 = ImageFont.truetype('/home/pi/Seeed_Elink_Raspberry_calendar/python3/Library/Font.ttc', 18)
+font45 = ImageFont.truetype('/home/pi/Seeed_Elink_Raspberry_calendar/python3/Library/Font.ttc', 45)
+w_font_l = ImageFont.truetype('/home/pi/Seeed_Elink_Raspberry_calendar/python3/Library/weathericons-regular-webfont.ttf', 60)
+w_font_s = ImageFont.truetype('/home/pi/Seeed_Elink_Raspberry_calendar/python3/Library/weathericons-regular-webfont.ttf', 22)
 im_open = Image.open
 EPD_WIDTH = 176
 EPD_HEIGHT = 264

@@ -28,7 +28,7 @@
 #
 
 
-import epdconfig
+from Library import epdconfig
 
 # Display resolution
 EPD_WIDTH       = 176
