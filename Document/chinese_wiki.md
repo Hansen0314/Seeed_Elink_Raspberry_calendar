@@ -28,6 +28,7 @@ git clone https://github.com/waveshare/e-Paper.git
 ```
 
 第二步：打开`epdconfig.py`文件上面那四个引脚编号分别修改成`RST_PIN = 13`，`DC_PIN = 6`，`CS_PIN = 5`，`BUSY_PIN = 19`
+
 ```shell
 cd ~
 nano ~/e-Paper/Raspberry\ Pi/python3/lib/epdconfig.py
@@ -40,7 +41,7 @@ python3 epd_2in7b_test.py
 ```
 
 效果如下图
-
+![](https://github.com/hansonCc/Seeed_Elink_Raspberry_calendar/raw/master/pic/demo.jpg)
 
 
 ### 日历软件设计
@@ -50,10 +51,15 @@ python3 epd_2in7b_test.py
 ```shell
 bash -c "$(curl -sL https://raw.githubusercontent.com/aceisace/Inky-Calendar/Stable/Installer-with-debug.sh)"
 ```
-下面我将简述我的设计流程，首先，我们需要做的将云端的天气采集到我们的设备上面，显然[OpenWeatherMap](https://openweathermap.org/)就非常适合我们。
+
+安装依赖项的详细流程请参考[Inky-Calendar](https://github.com/aceisace/Inky-Calendar/blob/Stable/Calendar/settings.py.sample)，下面我将简述我的设计流程，首先，我们需要做的将云端的天气采集到我们的设备上面，显然[OpenWeatherMap](https://openweathermap.org/)就非常适合我们。
 第一步：点击[详细指南](https://openweathermap.org/guide)，将导航到`OpenWeatherMap`的指南页，上面的会教你如何订阅一个免费的服务。
 
+![](https://github.com/hansonCc/Seeed_Elink_Raspberry_calendar/raw/master/pic/How_to_start_Registration_process.JPG)
+
 第二步：您可以根据[Seeed_Elink_Raspberry_calendar](https://github.com/hansonCc/Seeed_Elink_Raspberry_calendar/tree/master/python3)提供的`Settings.py`文件设置`OpenWeatherMap`相关的参数并将其保存到对应的文件夹。
+
+![](https://github.com/hansonCc/Seeed_Elink_Raspberry_calendar/raw/master/pic/settings.JPG)
 
 第三步：您可以运行下面的代码查看相应的天气信息
 ```shell
@@ -62,7 +68,11 @@ cd ~/Seeed_Elink_Raspberry_calendar/python3
 python3 Calendar.py
 ```
 
+![](https://github.com/hansonCc/Seeed_Elink_Raspberry_calendar/raw/master/pic/weather_conduct.JPG)
+
 然后，我们需要将采集到时间和天气信息显示到`2.7'' Triple-Color E-Ink Display for Raspberry Pi`上面，为了做出想要的GUI的特意参考了[Inky-Calendar](https://github.com/aceisace/Inky-Calendar/blob/Stable/Calendar/settings.py.sample)上面模型，实际运行的效果如下：
+
+![](https://github.com/hansonCc/Seeed_Elink_Raspberry_calendar/raw/master/pic/conduct.jpg)
 
 最后，为了防止树莓派掉电后，程序运行停止，我们将进行开机自启动
 
@@ -82,5 +92,5 @@ sudo -u pi /home/pi/Seeed_Elink_Raspberry_calendar/startup.sh
 ```
 
 ## 成果展示
-[hackster.io](https://www.hackster.io/CHENJUNJ/smart-clock-9a79ed)
+![](https://github.com/hansonCc/Seeed_Elink_Raspberry_calendar/raw/master/pic/conduct.jpg)
 
